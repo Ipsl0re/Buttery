@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl3n1enbt7qp5"]
+
+[ext_resource type="Script" path="res://Pot.gd" id="2_5yng3"]
+[ext_resource type="Texture2D" uid="uid://dvrpdopt401yd" path="res://Der Schokoladenaufstrich.png" id="2_le0sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsxuf"]
+size = Vector2(150, 97)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_5yng3")
+
+[node name="Nutella" type="Sprite2D" parent="."]
+position = Vector2(464, 65)
+texture = ExtResource("2_le0sn")
+
+[node name="Cnut" type="Area2D" parent="Nutella"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Nutella/Cnut"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_xsxuf")
+
+[node name="Peanut" type="Sprite2D" parent="."]
+position = Vector2(626, 66)
+texture = ExtResource("2_le0sn")
+
+[node name="Pnut" type="Area2D" parent="Peanut"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Peanut/Pnut"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_xsxuf")
+
+[node name="Jam" type="Sprite2D" parent="."]
+position = Vector2(787, 68)
+texture = ExtResource("2_le0sn")
+
+[node name="Jam" type="Area2D" parent="Jam"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jam/Jam"]
+position = Vector2(-2.28882e-05, 0)
+shape = SubResource("RectangleShape2D_xsxuf")
+
+[node name="Mallow" type="Sprite2D" parent="."]
+position = Vector2(949, 69)
+texture = ExtResource("2_le0sn")
+
+[node name="Malo" type="Area2D" parent="Mallow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mallow/Malo"]
+position = Vector2(-2.28882e-05, 0)
+shape = SubResource("RectangleShape2D_xsxuf")
+
+[connection signal="area_entered" from="Nutella/Cnut" to="." method="_on_cnut_area_entered"]
+[connection signal="area_entered" from="Peanut/Pnut" to="." method="_on_pnut_area_entered"]
+[connection signal="area_entered" from="Jam/Jam" to="." method="_on_jam_area_entered"]
+[connection signal="area_entered" from="Mallow/Malo" to="." method="_on_malo_area_entered"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ytbtsc48yngx"]
+
+[ext_resource type="Texture2D" uid="uid://b8yfwdr1frsmf" path="res://Das Brot.png" id="1_ijtcp"]
+
+[node name="Bread" type="Sprite2D"]
+position = Vector2(502, 420)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ijtcp")

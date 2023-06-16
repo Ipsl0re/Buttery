@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv3ycxlnpl8em"]
+
+[ext_resource type="PackedScene" uid="uid://cdxj51miuxmj1" path="res://Knoife.tscn" id="1_raytw"]
+[ext_resource type="PackedScene" uid="uid://dl3n1enbt7qp5" path="res://Pot.tscn" id="2_l81xw"]
+[ext_resource type="PackedScene" uid="uid://ytbtsc48yngx" path="res://Bread.tscn" id="3_vlito"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Knife" parent="." instance=ExtResource("1_raytw")]
+position = Vector2(256, 465)
+
+[node name="Pots" parent="." instance=ExtResource("2_l81xw")]
+
+[node name="Breadmanager" type="Node2D" parent="."]
+
+[node name="Bread" parent="Breadmanager" instance=ExtResource("3_vlito")]
+position = Vector2(516, 416)
+
+[connection signal="newspread" from="Pots" to="Knife" method="_on_pots_newspread"]
