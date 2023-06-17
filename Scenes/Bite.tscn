@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnfx7y5l3tlgm"]
+
+[ext_resource type="SpriteFrames" uid="uid://c83pbd4o8sfyd" path="res://Bread/Spread_frames.tres" id="1_n54wh"]
+[ext_resource type="Script" path="res://Scripts/Bite.gd" id="2_ea1ym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pstcd"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("1_n54wh")
+animation = &"Nut"
+script = ExtResource("2_ea1ym")
+
+[node name="1-1" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1-1"]
+shape = SubResource("RectangleShape2D_pstcd")
+
+[connection signal="area_entered" from="1-1" to="." method="_on__area_entered"]

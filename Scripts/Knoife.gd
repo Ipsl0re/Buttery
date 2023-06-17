@@ -13,3 +13,7 @@ func _process(_delta):
 func _on_pots_newspread(type):
 	topping = type
 	set_frame(type)
+
+func _on_area_2d_area_entered(area):
+	if !$AudioStreamPlayer.is_playing():
+		$AudioStreamPlayer.play()

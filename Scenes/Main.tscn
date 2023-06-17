@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdxj51miuxmj1" path="res://Scenes/Knoife.tscn" id="1_ocxft"]
 [ext_resource type="PackedScene" uid="uid://dl3n1enbt7qp5" path="res://Scenes/Pot.tscn" id="2_ewhp2"]
 [ext_resource type="Script" path="res://Scripts/Breadmanager.gd" id="3_yapqb"]
-[ext_resource type="PackedScene" uid="uid://ytbtsc48yngx" path="res://Scenes/Bread.tscn" id="4_s26hv"]
+[ext_resource type="PackedScene" uid="uid://bxdspsotyetff" path="res://Scenes/Bread.tscn" id="4_s26hv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14oeb"]
 size = Vector2(26, 462)
@@ -16,7 +16,7 @@ position = Vector2(256, 465)
 [node name="Pots" parent="." instance=ExtResource("2_ewhp2")]
 
 [node name="Breadmanager" type="Node2D" parent="."]
-position = Vector2(1216, 150)
+position = Vector2(557, 145)
 script = ExtResource("3_yapqb")
 
 [node name="Bread" parent="Breadmanager" instance=ExtResource("4_s26hv")]
@@ -32,3 +32,4 @@ position = Vector2(-478, 70)
 shape = SubResource("RectangleShape2D_14oeb")
 
 [connection signal="newspread" from="Pots" to="Knife" method="_on_pots_newspread"]
+[connection signal="area_entered" from="Area2D" to="Breadmanager" method="_on_area_2d_area_entered"]
