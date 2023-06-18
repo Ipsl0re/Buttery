@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://j8ka0qce5i8w"]
+[gd_scene load_steps=13 format=3 uid="uid://j8ka0qce5i8w"]
 
 [ext_resource type="PackedScene" uid="uid://cdxj51miuxmj1" path="res://Scenes/Knoife.tscn" id="1_ocxft"]
 [ext_resource type="PackedScene" uid="uid://dl3n1enbt7qp5" path="res://Scenes/Pot.tscn" id="2_ewhp2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxdspsotyetff" path="res://Scenes/Bread.tscn" id="4_s26hv"]
 [ext_resource type="Texture2D" uid="uid://iiu8ew7pvd7a" path="res://Conveyor Belt.png" id="5_yp8fh"]
 [ext_resource type="Script" path="res://Scenes/Belt.gd" id="6_eil1r"]
+[ext_resource type="PackedScene" uid="uid://cnx7s7sxggt78" path="res://Scenes/Screen.tscn" id="7_kr5kp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87rnw"]
 atlas = ExtResource("5_yp8fh")
@@ -70,6 +71,10 @@ collision_mask = 2
 position = Vector2(-478, 70)
 shape = SubResource("RectangleShape2D_14oeb")
 
+[node name="Screen" parent="." instance=ExtResource("7_kr5kp")]
+position = Vector2(185, 82)
+
 [connection signal="newspread" from="Pots" to="Knife" method="_on_pots_newspread"]
+[connection signal="nextpattern" from="Breadmanager" to="Screen" method="_on_breadmanager_nextpattern"]
 [connection signal="compare" from="Breadmanager/Bread" to="Breadmanager" method="_on_bread_compare"]
 [connection signal="area_entered" from="Area2D" to="Breadmanager" method="_on_area_2d_area_entered"]

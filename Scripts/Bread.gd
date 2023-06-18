@@ -11,7 +11,6 @@ func _ready():
 		for j in grid_width:
 			grid[i].append(0) # Set a starter value for each position
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	translate(Vector2(-1, 0))

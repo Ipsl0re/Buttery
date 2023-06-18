@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnx7s7sxggt78"]
+[gd_scene load_steps=4 format=3 uid="uid://cnx7s7sxggt78"]
 
-[ext_resource type="Script" path="res://Screen.gd" id="1_f3ofd"]
+[ext_resource type="Script" path="res://Scripts/Screen.gd" id="1_s64mg"]
+[ext_resource type="Texture2D" uid="uid://bx1k1mckupthu" path="res://Monitor.png" id="2_58hds"]
+[ext_resource type="PackedScene" uid="uid://dkdr7o7jig4gi" path="res://Scenes/Telebread.tscn" id="3_br4dy"]
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_f3ofd")
+script = ExtResource("1_s64mg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Monitor" type="Sprite2D" parent="."]
+texture = ExtResource("2_58hds")
+
+[node name="Node2D" parent="Monitor" instance=ExtResource("3_br4dy")]
+scale = Vector2(0.5, 0.5)
+
+[connection signal="nextpattern" from="." to="Monitor/Node2D" method="_on_screen_nextpattern"]
