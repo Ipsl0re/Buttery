@@ -1,7 +1,12 @@
 extends AnimatedSprite2D
 
+signal newspread(type, pos)
+var pos = [0,0]
 var shape
 func _ready():
+	var postring = str(get_name())
+	pos[0] = int(postring[0])
+	pos[1] = int(postring[2])
 	shape = self.get_frame()
 
 func _on__area_entered(area):
@@ -20,3 +25,4 @@ func _on__area_entered(area):
 			self.set_animation("Malo")
 			pass
 	self.set_frame(shape)
+	emit_signal("newspread", type, pos)

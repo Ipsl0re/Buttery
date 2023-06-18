@@ -13,6 +13,8 @@ script = ExtResource("2_ea1ym")
 
 [node name="1-1" type="Area2D" parent="."]
 scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="1-1"]
 shape = SubResource("RectangleShape2D_pstcd")
