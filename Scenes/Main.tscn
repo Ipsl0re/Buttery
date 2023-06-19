@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://j8ka0qce5i8w"]
+[gd_scene load_steps=14 format=3 uid="uid://j8ka0qce5i8w"]
 
 [ext_resource type="PackedScene" uid="uid://cdxj51miuxmj1" path="res://Scenes/Knoife.tscn" id="1_ocxft"]
 [ext_resource type="PackedScene" uid="uid://dl3n1enbt7qp5" path="res://Scenes/Pot.tscn" id="2_ewhp2"]
 [ext_resource type="Script" path="res://Scripts/Breadmanager.gd" id="3_yapqb"]
 [ext_resource type="PackedScene" uid="uid://bxdspsotyetff" path="res://Scenes/Bread.tscn" id="4_s26hv"]
+[ext_resource type="Script" path="res://Puzzles.gd" id="5_7n7xf"]
 [ext_resource type="Texture2D" uid="uid://iiu8ew7pvd7a" path="res://Conveyor Belt.png" id="5_yp8fh"]
 [ext_resource type="Script" path="res://Scenes/Belt.gd" id="6_eil1r"]
 [ext_resource type="PackedScene" uid="uid://cnx7s7sxggt78" path="res://Scenes/Screen.tscn" id="7_kr5kp"]
@@ -51,16 +52,19 @@ position = Vector2(256, 465)
 position = Vector2(1286, 372)
 script = ExtResource("3_yapqb")
 
-[node name="Belt" type="AnimatedSprite2D" parent="Breadmanager"]
-z_index = -10
-position = Vector2(-772, 40)
-sprite_frames = SubResource("SpriteFrames_eox2d")
-frame_progress = 0.114549
-script = ExtResource("6_eil1r")
-
 [node name="Bread" parent="Breadmanager" instance=ExtResource("4_s26hv")]
 z_index = 3
 position = Vector2(-86, 29)
+
+[node name="Breadbox" type="Node" parent="Breadmanager"]
+script = ExtResource("5_7n7xf")
+
+[node name="Belt" type="AnimatedSprite2D" parent="."]
+z_index = -10
+position = Vector2(514, 412)
+sprite_frames = SubResource("SpriteFrames_eox2d")
+frame_progress = 0.114549
+script = ExtResource("6_eil1r")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(101, 399)

@@ -29,5 +29,6 @@ func _setspread(grid):
 			incr += 1
 
 
+
 func _on_screen_nextpattern(grid):
 	_setspread(grid)

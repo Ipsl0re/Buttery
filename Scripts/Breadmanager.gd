@@ -4,22 +4,18 @@ var loaf = preload("res://Scenes/Bread.tscn")
 signal nextpattern(grid)
 
 var lives = 3
-var correct = null
+var correct = false
 
 var grid = []
 var grid_width = 5
 var grid_height = 6
 
 func _ready():
-	for i in grid_height:
-		grid.append([])
-		for j in grid_width:
-			grid[i].append(1) # Set a starter value for each position
+	grid = $Breadbox._getpattern()
 	emit_signal("nextpattern", grid)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print (lives)
 	pass
 
 func _on_area_2d_area_entered(area):
@@ -28,8 +24,9 @@ func _on_area_2d_area_entered(area):
 		lives -= 1
 	var instance = loaf.instantiate()
 	add_child(instance)
-	correct = null
+	grid = $Breadbox._getpattern()
 	emit_signal("nextpattern", grid)
+	correct = false
 
 func _on_bread_compare(ogrid):
 	var passes = true
@@ -39,3 +36,5 @@ func _on_bread_compare(ogrid):
 				passes = false
 	if passes == true:
 		correct = true
+	else:
+		correct = false
