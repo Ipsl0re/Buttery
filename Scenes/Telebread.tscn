@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkdr7o7jig4gi"]
 
 [ext_resource type="Texture2D" uid="uid://b8yfwdr1frsmf" path="res://Bread/Das Brot.png" id="1_i60du"]
-[ext_resource type="Script" path="res://Scenes/Telebread.gd" id="2_61hry"]
+[ext_resource type="Script" path="res://Scripts/Telebread.gd" id="2_61hry"]
 [ext_resource type="SpriteFrames" uid="uid://c83pbd4o8sfyd" path="res://Bread/Spread_frames.tres" id="3_1wd6x"]
 
 [node name="Bread" type="Sprite2D"]
